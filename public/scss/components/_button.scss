@@ -1,0 +1,38 @@
+
+._button {
+    display: inline-block;
+    $fsz: 20px;
+    border-radius: pxToRem(8px);
+    background-color: map_get($COLORS, purple_dark);
+    
+    color: map_get($COLORS, white);
+    font-size: pxToRem($fsz);
+    font-weight: 500;
+    @include line-height(24px, $fsz);
+    letter-spacing: 0.5px;
+    padding: pxToRem(16px) pxToRem(40px);
+    text-align: center;
+    transition: background-color .1s ease-in-out;
+
+    &:hover {
+        background-color: map_get($COLORS, purple_dark_hover);
+    }
+}
+._button--min {
+    $fsz: 16px;
+    font-size: pxToRem($fsz);
+    @include line-height(24px, $fsz);
+    padding: pxToRem(12px) pxToRem(28px);
+}
+._button--transparent {
+    background-color: transparent;
+}
+._button--white-border {
+    background-color: transparent;
+    border: 2px solid map_get($COLORS, white);
+    transition: border-color .1s ease-in-out;
+
+    &:hover {
+        border-color: map_get($COLORS, purple_dark_hover);
+    }
+}

@@ -1,0 +1,40 @@
+<%
+    let blockClass = '',
+        additionalClass = ''
+
+    if(typeof block !== 'undefined' && block)
+        blockClass = `${block}__block-header`
+    if(typeof centered !== 'undefined' && centered)
+        additionalClass = 'block-header--center'
+
+%>
+<div class="<%= blockClass %> block-header <%= additionalClass %>">
+    <% if(typeof tag !== 'undefined' && tag) { %>
+        <div class="block-header__tag"><%= tag %></div>
+    <% } %>
+    <% if(typeof title !== 'undefined' && title) { %>
+        <h2 class="block-header__title">
+            <%- title %>
+        </h2>
+    <% } %>
+    <% if(typeof text !== 'undefined' && text) { %>
+        <div class="block-header__text">
+            <p><%= text %></p>
+        </div>
+      <% } %>
+    <% if(typeof button_list !== 'undefined' && button_list) { %>
+        <div class="block-header__buttons">
+            <% button_list.forEach(function(e) { %>
+                <a href="" class="<%= e.class %>"><%= e.label %></a>
+            <% }) %>
+        </div>
+    <% } %>
+    <% if(typeof link !== 'undefined' && link) { %>
+        <a class="block-header__link">
+            <span><%- link %></span>
+            <svg>
+                <use href="./img/icons/sprite.svg#arrow-right"></use>
+            </svg>
+        </a>
+    <% } %>
+</div>

@@ -1,0 +1,10 @@
+<section class="page__hero hero">
+  <div class="hero__container _container">
+    <%- include('../components/block-header', 
+      { block: 'hero', title: hero.title, text: hero.text, button_list: hero.button_list, centered: hero.centered })
+    %>
+    <figure class="hero__image">
+      <img data-src="./img/hero/background.svg" alt="" />
+    </figure>
+  </div>
+</section>

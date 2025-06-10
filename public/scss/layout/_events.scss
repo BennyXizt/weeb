@@ -1,0 +1,175 @@
+.events {
+    background-color: map-get($COLORS, white);
+    color: map-get($COLORS, black);
+
+    &__container {
+        *:not(:nth-child(1)) {
+            margin-top: unset;
+        }
+    }
+    &__header {
+        &:not(:last-child) {
+            @include rem(margin-bottom, 24px);
+        }
+    }
+
+    .block-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__link {
+            svg {
+                color: map-get($COLORS, purple_dark);
+            }
+        }
+    }
+
+    .item-event {
+        position: relative;
+
+        &__category {
+            position: absolute;
+            z-index: 2;
+            @include rem((
+                top: 16px,
+                left: 16px,
+                font-size: 14px,
+                padding: 2px 8px
+            ));
+            @include line-height(19.6px, 14px);
+            border-radius: 4px;
+            background-color: map-get($COLORS, purple_lighter);
+            color: map-get($COLORS, purple_darker);
+            transition: color .3s ease-in-out, background-color .3s ease-in-out;
+
+            &:hover {
+                color: map-get($COLORS, white);
+                background-color: map-get($COLORS, purple_darker);
+            }
+        }
+
+        &__link-image {
+            display: block;
+            overflow: hidden;
+            border-radius: 5px;
+            
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 440 / 210;
+                transition: transform .5s ease-in-out;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }       
+    }
+    .body-item-event {
+        @include rem((
+            padding-top: 24px
+        ));
+
+        &__category {
+            @include rem(font-size, 16px);
+            font-weight: 500;
+            @include line-height(17.6px, 16px);
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 4px;
+            }
+        }
+        &__title {
+            @include rem(font-size, 40px);
+            @include line-height(44px, 40px);
+            font-weight: 700;
+            transition: color .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                color: map-get($COLORS, purple_darker);
+            }
+
+            &:not(:last-child) {
+                @include rem(margin-bottom, 28px);
+            }
+        }
+
+        &__link {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: pointer;
+            @include rem(gap, 10px 16px);
+            color: map-get($COLORS, purple_darker);
+
+            span {
+                display: inline-block;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0%;
+                    height: 2px;
+                    left: 0;
+                    bottom: -5px;
+                    background-color: map-get($COLORS, purple_dark);
+                    transition: width .4s ease-in-out;
+                }
+            }
+
+            svg {
+                @include rem((
+                    width: 14px,
+                    height: 14px
+                ))
+            }
+
+            &:hover {
+                span {
+                    &:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr));
+        @include rem(gap, 10px 24px);
+    }
+
+
+
+
+    @media (max-width: map-get($MEDIA, tablet)) {
+        .body-item-event {
+            &__title {
+                @include rem(font-size, 32px);
+            }
+        }
+    }
+    @media (max-width: map-get($MEDIA, mobile)) {
+        .body-item-event {
+            &__title {
+                @include rem(font-size, 24px);
+            }
+        }
+        &__block-header {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}

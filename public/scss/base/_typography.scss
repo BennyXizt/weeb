@@ -1,0 +1,29 @@
+
+
+@each $i, $values in $H_HEADERS_FONTS {
+    $fsz: nth($values, 1);
+    $lh: nth($values, 2);
+
+    h#{$i} {
+        @include rem(font-size, $fsz);
+        @include line-height($lh, $fsz);
+        font-weight: 600;
+        overflow-wrap: break-word;
+
+        @media (max-width: map-get($MEDIA, tablet)) {
+            @include rem(font-size, calc($fsz * .8));
+        }
+        @media (max-width: map-get($MEDIA, mobile)) {
+            @include rem(font-size, calc($fsz * .75));
+        }
+        @media (max-width: map-get($MEDIA, mobile_small)) {
+            @include rem(font-size, calc($fsz * .7));
+        }
+    }
+}
+
+p {
+    @include rem(font-size,18px);
+    @include line-height(28.8px,18px);
+    overflow-wrap: break-word;
+}

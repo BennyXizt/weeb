@@ -1,0 +1,16 @@
+<section class="page__companies companies">
+    <div class="companies__container _container">
+        <% if(companies.title) { %>
+            <h2 class="companies__title"><%= companies.title%></h2>
+        <% } %>
+        <ul class="companies__list">
+            <% companies.logos.forEach(function(e) { %>
+                <li class="companies__item">
+                    <figure>
+                        <img data-src="<%= e.src %>" alt="<%= e.alt %>">
+                    </figure>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</section>

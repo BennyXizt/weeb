@@ -1,0 +1,41 @@
+<section class="page__events events">
+    <div class="events__container _container">
+        <% if(typeof body !== 'undefined' && body) { %>
+            <div class="events__header">
+                <%- include('../components/block-header', 
+                { ...body }
+                )%>
+            </div>
+        <% } %>
+        <% if(typeof articles !== 'undefined' && articles) { %>
+            <div class="events__items">
+                <% for(const article of articles) {%>
+                    <article class="events__item item-event">
+                        <a href="" class="item-event__category">
+                           <%= article.category %>
+                        </a>
+                        <a href="" class="item-event__link-image">
+                            <img data-src="<%= article.image %>" alt="">
+                        </a>
+                        <div class="item-event__body body-item-event">
+                            <a href="" class="body-item-event__category">
+                                <%= article.category %>
+                            </a>
+                             <h4 class="body-item-event__title">
+                                <a class="body-item-event__link-title">
+                                   <%- article.title %>
+                                </a>
+                             </h4>
+                              <a class="body-item-event__link">
+                                <span><%- article.link %></span>
+                                <svg>
+                                    <use href="./img/icons/sprite.svg#arrow-right"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+</section>

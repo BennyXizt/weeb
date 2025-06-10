@@ -1,0 +1,191 @@
+.block-header {
+    display: grid;
+    @include rem(gap, 32px);
+
+    &__title {
+        font-weight: 800;
+        overflow-wrap: break-word;
+
+        & span {
+            display: inline-block;
+        }
+    }
+
+    &__text {
+        @include rem(max-width, 760px);
+    }
+
+    &__buttons {
+        display: flex;
+        @include rem(gap, 16px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__tag {
+        @include rem((
+            font-size: 20px,
+            letter-spacing: 3px
+        ));
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        @include rem(gap, 10px 16px);
+
+        span {
+            display: inline-block;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 0%;
+                height: 2px;
+                left: 0;
+                bottom: -5px;
+                background-color: map-get($COLORS, purple_dark);
+                transition: width .4s ease-in-out;
+            }
+        }
+
+        svg {
+            @include rem((
+                width: 14px,
+                height: 14px
+            ));
+            color: map-get($COLORS, white);
+        }
+
+        &:hover {
+            span {
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+
+
+    }
+
+    &--center {
+        justify-content: center;
+    }
+
+    &__line {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 100%;
+            background-color: map-get($COLORS, purple_light);
+            
+        }
+
+        &--bottom {
+            &::before {
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        &--top {
+            &::before {
+                @include rem(top,15px);
+                z-index: -1;
+                left: 5px;
+            }
+        }
+
+        @media (max-width: map-get($MEDIA, tablet)) {
+            &--top {
+                &::before {
+                    @include rem(top,12px);
+                }
+            }
+        }
+        @media (max-width: map-get($MEDIA, mobile)) {
+            &--top {
+                &::before {
+                    @include rem(top,8px);
+                }
+            }
+        }
+    }
+    &__purple {
+        color: map-get($COLORS, purple_dark);
+    }
+    &__purple-light {
+        color: map-get($COLORS, purple_light);
+    }
+    &__border {
+        position: relative;
+
+        span {
+            position: relative;
+            z-index: 2;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            @include rem(left, -7px);
+            top: 0;
+            height: 100%;
+            width: 96%;
+            border: 5px solid map-get($COLORS, orange);
+        }
+
+
+        @media (max-width: map-get($MEDIA, tablet)) {
+            &:before {
+                @include rem(left, -6px);
+                border-width: calc(5px * .6);
+            }
+        }
+        @media (max-width: map-get($MEDIA, mobile)) {
+            &:before {
+                @include rem(left, -6px);
+                border-width: calc(5px * .4);
+            }
+        }
+    }
+    &__background {
+        position: relative;
+
+        span {
+            position: relative;
+            z-index: 2;
+        }
+
+        &:before {
+            content: "";
+            height: 100%;
+            width: 23%;
+            position: absolute;
+            top: 0;
+            @include rem(left, -10px);
+            background-color: map-get($COLORS, pink);
+           
+        }
+    }
+
+}
+
+
+@media (max-width: map-get($MEDIA, mobile_small)) {
+    .block-header {
+        &__buttons {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+}

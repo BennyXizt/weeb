@@ -1,0 +1,42 @@
+.hero {
+    @include rem(padding-top,104px);
+    text-align: center;
+    
+
+    &__container {
+        position: relative;
+        transform: translateX(-100px);
+        opacity: 0;
+        visibility: hidden;
+        transition: .8s ease-in-out;
+        transition-property: transform, visibility, opacity;
+    }
+
+    &.--animate {
+        .hero__container {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+    }
+   
+
+    &__image {
+        img {
+            max-width: 100%;
+            @include rem(border-radius,20px);
+            box-shadow:
+                    0px 25px 50px -12px rgba(map-get($COLORS, black), 0.25),
+                    0px 0px 15px 0px rgba(map-get($COLORS, black), 0.07)
+            
+        }
+    }
+}
+
+
+@media (max-width: map-get($MEDIA, tablet)) {
+    .hero {
+         @include rem(padding-top, calc(104px * 0.7));
+    }
+}
+

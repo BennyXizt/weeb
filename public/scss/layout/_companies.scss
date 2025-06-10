@@ -1,0 +1,25 @@
+.companies {
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .8s ease-in-out;
+    transition-property: visibility, opacity;
+
+    &.--animate {
+         opacity: 1;
+         visibility: visible;
+    }
+
+
+    &__title {
+        text-align: center;
+
+        
+    }
+    &__list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        @include rem(gap, 5px 24px);
+    }
+}

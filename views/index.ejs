@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./layout/head') %>
+    <body>
+        <div class="wrapper">
+            <%- include('./layout/header') %>
+            <main class="page">
+            <%- include('./layout/hero') %>
+            <%- include('./layout/companies') %>
+            <%- include('./layout/discover',
+                { 
+                    body: 
+                    {
+                        block: 'discover', title: discover.title, text: discover.text, tag: discover.tag, link: discover.link
+                    },
+                    image: discover.image,
+                    type: 1
+                }
+            ) %>
+            <%- include('./layout/discover',
+                { 
+                    body: 
+                    {
+                        block: 'powerful', title: powerful.title, text: powerful.text, tag: powerful.tag
+                    },
+                    image: powerful.image,
+                    type: 2
+                }
+            ) %>
+            <%- include('./layout/discover',
+                { 
+                    body: 
+                    {
+                        block: 'customers', title: customers.title, text: customers.text, tag: customers.tag, link: customers.link
+                    },
+                    image: customers.image,
+                    type: 1
+                }
+            ) %>
+            <%- include('./layout/discover',
+                { 
+                    body: 
+                    {
+                        block: 'speed', title: speed.title, text: speed.text, tag: speed.tag
+                    },
+                    image: speed.image,
+                    type: 2
+                }
+            ) %>
+            <%- include('./layout/testimonials.ejs',
+                {
+                    body: 
+                    {
+                        block: 'testimonials', title: testimonials.title, text: testimonials.text, tag: testimonials.tag, link: testimonials.link
+                    },
+                    image: testimonials.image,
+                    quotes: testimonials.quotes
+                }
+            ) %>
+            <%- include('./layout/events.ejs',
+                {
+                    body: 
+                    {
+                        block: 'events', title: events.title, link: events.link
+                    },
+                    articles: events.articles
+                }
+            )%>
+            </main>
+            <%- include('./layout/footer') %>
+        </div>
+        <script src="../index.js" defer></script>
+    </body>
+</html>

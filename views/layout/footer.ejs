@@ -1,0 +1,41 @@
+<footer class="footer">
+    <div class="footer__container _container">
+      <div class="footer__body">
+        <% if(typeof footer.logo !== 'undefined' && footer.logo) { %>
+            <a href="" class="footer__logo"><%= footer.logo %></a>
+        <% } %>
+        <% if(typeof footer.navigations !== 'undefined' && footer.navigations) { %>
+            <nav class="footer__nav nav-footer">
+                <% for(const navigation of footer.navigations ) { %>
+                   <div class="nav-footer__item">
+                        <div class="nav-footer__title"><%= navigation.title %></div>
+                        <ul class="nav-footer__list">
+                            <% for(const item of navigation.list) { %>
+                                <li class="nav-footer__item">
+                                    <a href=""><%= item %></a>
+                                </li>
+                            <% } %>
+                        </ul>
+                   </div>
+                <% } %>
+            </nav>
+        <% } %>
+      </div>
+      <div class="footer__bottom">
+        <% if(typeof footer.copyright !== 'undefined' && footer.copyright) { %>
+            <div class="footer__copyright"><%= footer.copyright %></div>
+        <% } %>
+        <% if(typeof footer.social_media !== 'undefined' && footer.social_media) { %>
+            <ul class="footer__social-media">
+                <% for(social_media of footer.social_media) { %>
+                    <li>
+                        <svg>
+                            <use href="<%= social_media %>"></use>
+                        </svg>
+                    </li>
+                <% } %>
+            </div>
+        <% } %>
+      </div>
+    </div>
+</footer>

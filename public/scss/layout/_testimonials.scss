@@ -1,0 +1,77 @@
+.testimonials {
+    background-color: map-get($COLORS, purple);
+    
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @include rem(gap, 10px 80px);
+        align-items: center;
+
+        & > *:not(:nth-child(1)) {
+            margin-top: unset;
+        }
+    }
+
+    &__media {
+        img {
+            @include rem(border-radius, 20px);
+            overflow: hidden;
+            width: 100%;
+            box-shadow:
+                    0px 25px 50px -12px rgba(map-get($COLORS, black), 0.25),
+                    0px 0px 15px 0px rgba(map-get($COLORS, black), 0.07)
+        }
+    }
+
+    .item-testimonials {
+        display: grid;
+        @include rem(gap, 16px);
+
+        &__body {
+            display: flex;
+            @include rem(gap, 16px);
+            align-items: flex-start;
+
+            img {
+                border-radius: 50%;
+                overflow: hidden;
+            }
+        }
+
+        &__info {
+            align-self: center;
+        }
+
+        &__text,
+        &__name {
+            @include rem(font-size, 18px);
+            @include line-height(28.8px, 18px);
+        }
+
+        &__position {
+            @include rem(font-size, 16px);
+            @include line-height(22.4px, 16px);
+        }
+    }
+
+    @media (max-width: map-get($MEDIA, tablet)) {
+        &__container {
+            @include rem(column-gap, 40px);
+        }
+    }
+     @media (max-width: map-get($MEDIA, mobile)) {
+        &__container {
+            grid-template-columns: auto;
+            justify-items: center;
+            @include rem(row-gap, 32px);
+        }
+        &__block-header {
+            justify-items: center;
+            text-align: center;
+
+            &__link {
+                justify-self: center;
+            }
+        }
+    }
+}

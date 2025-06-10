@@ -1,0 +1,30 @@
+<section class="page__testimonials testimonials">
+    <div class="testimonials__container _container">
+      <% if(typeof body !== "undefined && body") { %>
+        <div class="testimonials__body">
+            <%- include('../components/block-header', 
+                { ...body }
+            )%>
+        </div>
+      <% } %>
+      <% if(typeof image !== "undefined" && image) { %>
+        <figure class="testimonials__media">
+            <img data-src="<%= image %>" alt="">
+        </figure>
+      <% } %>
+      <% if(typeof quotes !== "undefined" && quotes) { %>
+        <div class="testimonials__item item-testimonials">
+            <div class="item-testimonials__text">
+                <p><%= quotes.text%></p>
+            </div>
+            <figure class="item-testimonials__body">
+                <img data-src="<%= quotes.image %>" alt="">
+                <div class="item-testimonials__info">
+                    <div class="item-testimonials__name"><%= quotes.title %></div>
+                    <div class="item-testimonials__position"><%= quotes.subtitle %></div>
+                </div>
+            </figure>
+        </div>
+      <% } %>
+    </div>
+</section>

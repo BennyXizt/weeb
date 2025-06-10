@@ -1,0 +1,54 @@
+$FONT_SIZE: 18px;
+$PIXELS_ONLY: false;
+
+// ----------- FONTS ----------------- //
+$COLORS: (
+    // bg: #475569,
+    bg: #0F172A,
+    white: #fff,
+    purple: #581C87,
+    purple_dark: #9333EA,
+    purple_darker: #6B21A8,
+    purple_dark_hover: #59248a,
+    purple_light: #C084FC,
+    purple_lighter: #F3E8FF,
+    blue_dark: #0f172a,
+    black: #000,
+    orange: #C2410C,
+    pink: #be185d,
+    gray: #cbd5e1,
+    gray_dark: #94a3b8
+);
+$MEDIA: (
+    tablet: 991.98px,
+    mobile: 767.98px,
+    mobile_small: 580px
+);
+$HEADINGS: (
+    1xl: 128px,
+    1l: 96px,
+    1m: 72px,
+    2: 56px,
+    3: 48px,
+    4: 40px,
+    5: 32px,
+    6: 24px
+);
+$SUBTITLES: (
+    xl: 20px,
+    l: 18px,
+    m: 16px,
+    s: 14px
+);
+$H_HEADERS_FONTS: (
+    1: 72px 79px,
+    2: 56px 62px,
+    3: 48px 52.5px,
+    4: 40px 44px,
+    5: 32px 35px,
+    6: 28px 31px
+);
+
+
+
+

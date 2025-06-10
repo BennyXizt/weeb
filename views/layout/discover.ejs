@@ -1,0 +1,16 @@
+<section class="page__discover discover discover--<%= type %>">
+    <div class="discover__container _container">
+        <% if(typeof body !== "undefined" && body) { %>
+        <div class="discover__body">
+            <%- include('../components/block-header', 
+             { ...body }
+            )%>
+        </div>
+        <% } %>
+        <% if(typeof image !== "undefined" && image) { %> 
+             <figure class="discover__image">
+                <img data-src="<%= image %>" alt="">
+             </figure>
+        <% } %>
+    </div>
+</section>
